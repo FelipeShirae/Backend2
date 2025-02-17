@@ -1,0 +1,21 @@
+<h2>Histórico de Compras</h2>
+
+{{#if compras.length}}
+  <table border="1">
+    <tr>
+      <th>Data da Compra</th>
+      <th>Ações</th>
+    </tr>
+    {{#each compras}}
+      <tr>
+        <td>{{formatarData this.dataCompra}}</td>
+        <td>
+          <!-- Link para /api/compras/detalhe/:id -->
+          <a href="/api/compras/detalhe/{{this._id}}">Ver detalhes</a>
+        </td>
+      </tr>
+    {{/each}}
+  </table>
+{{else}}
+  <p>Você ainda não comprou nenhum ingresso.</p>
+{{/if}}

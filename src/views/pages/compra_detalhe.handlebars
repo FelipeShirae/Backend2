@@ -1,0 +1,29 @@
+<h2>Detalhes da Compra</h2>
+
+<p><strong>ID da Compra:</strong> {{compra._id}}</p>
+<p><strong>Data da Compra:</strong> {{formatarData compra.dataCompra}}</p>
+
+<hr>
+<h3>Ingressos Adquiridos</h3>
+<table border="1">
+  <thead>
+    <tr>
+      <th>Ingresso</th>
+      <th>Quantidade</th>
+      <th>Preço Unitário</th>
+      <th>Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each compra.ingressos}}
+      <tr>
+        <td>{{this.ingresso.nome}}</td>
+        <td>{{this.quantidade}}</td>
+        <td>R$ {{this.ingresso.preco}}</td>
+        <td>R$ {{multiplicar this.ingresso.preco this.quantidade}}</td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+<a href="/api/compras/historico">Voltar ao Histórico</a>
